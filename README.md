@@ -26,7 +26,8 @@ struct OtherView: View {
 
 If you mistype a key name, or specify different default values in different places in your code, you may end up with unexpected behiour. 
 
-With `AppValue`, you start by declaring all your app-level defaults in one place as a single struct:
+With `AppValue`, you start by declaring all your app-level defaults in one place as a single struct that conforms to `DefaultsConfig`. Individual properties are
+defined using the existing `@AppStorage` property wrapper from SwiftUI:
 
 ```swift
 import AppValue
@@ -61,6 +62,8 @@ struct ContentView: View {
   }
 }
 ``` 
+
+### Custom object storage
 
 `AppValue` also provides support for custom `struct` objects, as long as they conform to the `Codable` protocol.
 
